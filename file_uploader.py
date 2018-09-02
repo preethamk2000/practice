@@ -11,6 +11,6 @@ fpath = data["filepath"]
 
 if not os.system("sshpass -p "+pword+" scp -r backups/* "+uname+"@"+rip+":"+fpath) :
   os.system("mv backups/* uploaded/")
-  print "Done..."+"\n"
+  print "Done...\n"
 else:
-  print "Error transferring...."+"\n"  
+  print "Error transferring....\n"  
