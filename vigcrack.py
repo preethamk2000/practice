@@ -1,15 +1,12 @@
 import os
 from itertools import product
-from string import ascii_lowercase,ascii_letters,ascii_uppercase
+from string import ascii_uppercase
 
 keywords = [''.join(i) for i in product(ascii_uppercase, repeat = 3)]
-# keywords = ['NOT']
+
 ans = []
 
-# print(ord(keywords[34][2])-65)
-
 a = 'Js tes ynzevbz osavbw. Js znjx gvx NW ihfibgx. Jwmu bh tcty wm jol wilg sqvgmvbz.Ysm hg abdx vh wbsl acm swgq havg drm.'
-# a = ''.join( c for c in a if  c not in '}{_. ' )
 
 for key in keywords:
     i = -1
@@ -24,7 +21,7 @@ for key in keywords:
         else:
             newchar = letter
         new = new + newchar
-    # print(new)
+    # print(new) debug your reverser
     retval = os.system('cat /usr/share/dict/american-english | grep -iw "'+two+'"')
     if retval == 0:
         ans.append(new)
