@@ -8,8 +8,8 @@ ans = []
 
 # print(ord(keywords[34][2])-65)
 
-a = 'Js tes ynzevbz osavbw. Js znjx gvx NW ihfibgx. Jwmu bh tcty wm jol wilg sqvgmvbz.Ysm hg abdx vh wbsl acm swgq havg drm. MT20{havg_fhgm_fhtl_vbqrxa}'
-a = ''.join( c for c in a if  c not in '}{_. ' )
+a = 'Js tes ynzevbz osavbw. Js znjx gvx NW ihfibgx. Jwmu bh tcty wm jol wilg sqvgmvbz.Ysm hg abdx vh wbsl acm swgq havg drm.'
+# a = ''.join( c for c in a if  c not in '}{_. ' )
 
 for key in keywords:
     i = -1
@@ -25,14 +25,10 @@ for key in keywords:
             newchar = letter
         new = new + newchar
     # print(new)
-    if new.find("TG20",0,len(a)-1) != -1:
-        # ans.append(new)
-        two = new[0:2]
-        retval = os.system('cat /usr/share/dict/american-english | grep -iw "'+two+'"')
-        if retval == 0:
-            ans.append(new)
-            ans.append(key)
+    retval = os.system('cat /usr/share/dict/american-english | grep -iw "'+two+'"')
+    if retval == 0:
+        ans.append(new)
+        ans.append(key)
 
 for i in ans:
     print(i)
-    print()
