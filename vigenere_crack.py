@@ -1,8 +1,11 @@
+# Vigenere Cipher Basics (and if you need to use this with cuda-with numba you need to optimize and simplify the loops)
+
 import os
 from itertools import product
 from string import ascii_uppercase
 
-keywords = [''.join(i) for i in product(ascii_uppercase, repeat = 3)]
+keylen = 3
+keywords = [''.join(i) for i in product(ascii_uppercase, repeat = keylen)]
 
 ans = []
 
@@ -15,9 +18,9 @@ for key in keywords:
         if letter.isalpha():
             i = i + 1
             if ord(letter) <= 90:
-                newchar = chr(((ord(letter)-65) - (ord(key[i%3])-65))%26 + 65)
+                newchar = chr(((ord(letter)-65) - (ord(key[i%keylen])-65))%26 + 65)
             else:
-                newchar = chr(((ord(letter)-97) - (ord(key[i%3])-65))%26 + 97)
+                newchar = chr(((ord(letter)-97) - (ord(key[i%keylen])-65))%26 + 97)
         else:
             newchar = letter
         new = new + newchar
